@@ -1,0 +1,16 @@
+{
+    "name": "mindweb/db",
+    "description": "",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marcin Czołnowski",
+            "email": "marcin@czolnowski.net"
+        }
+    ],
+    "require": {
+        "mindweb/config": "*",
+        "doctrine/dbal": "~2.2"
+    }
+}
