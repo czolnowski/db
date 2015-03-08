@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "mindweb/config": "1.0.0"
+        "mindweb/config": "1.0.*"
     },
     "autoload": {
         "psr-0": {
