@@ -9,6 +9,19 @@ abstract class AbstractRepositoryFactory
     protected $repositories = array();
 
     /**
+     * @var Connection
+     */
+    protected $connection;
+
+    /**
+     * @param Connection $connection
+     */
+    public function __construct(Connection $connection)
+    {
+        $this->connection = $connection;
+    }
+
+    /**
      * @return string
      */
     abstract protected function getVendor();
@@ -24,21 +37,14 @@ abstract class AbstractRepositoryFactory
     abstract protected function getMapping();
 
     /**
-     * @param Connection $connection
      * @param string $repository
      * @return Repository
      */
-    public function get(Connection $connection, $repository)
+    public function get($repository)
     {
         $repositoryClassName = sprintf('%s\\%s\\Repository\\',
             $this->getVendor(), $this->getNamespace()
         );
-
-        switch ($connection->getType()) {
-            case 'mysql':
-                $repositoryClassName .= 'Mysql';
-                break;
-        }
 
         $mapping = $this->getMapping();
         if (!isset($mapping[$repository])) {
@@ -48,7 +54,9 @@ abstract class AbstractRepositoryFactory
         $repositoryClassName .= 'Repository';
 
         if (!isset($this->repositories[$repositoryClassName])) {
-            $this->repositories[$repositoryClassName] = new $repositoryClassName($connection->getHandler());
+            $this->repositories[$repositoryClassName] = new $repositoryClassName(
+                $this->connection->getHandler()
+            );
         }
 
         if (!$this->repositories[$repositoryClassName] instanceof Repository) {
