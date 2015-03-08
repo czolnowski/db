@@ -10,7 +10,6 @@
         }
     ],
     "require": {
-        "mindweb/config": "*",
-        "doctrine/dbal": "~2.2"
+        "mindweb/config": "1.0.0"
     }
 }

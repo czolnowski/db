@@ -5,8 +5,8 @@ use RuntimeException;
 
 class InvalidDbTypeException extends RuntimeException
 {
-    public function __construct($type)
+    public function __construct()
     {
-        parent::__construct('Invalid db type: ' . $type);
+        parent::__construct('Invalid db type.');
     }
 } 
