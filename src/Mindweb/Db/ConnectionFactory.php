@@ -13,9 +13,10 @@ class ConnectionFactory
     /**
      * @param Configuration $configuration
      * @param string $key
+     * @param bool $connectionKey
      * @return Connection
      */
-    public static function create(Configuration $configuration, $key = 'db_type')
+    public static function create(Configuration $configuration, $key = 'db_type', $connectionKey = false)
     {
         $dbType = $configuration->get($key);
 
@@ -35,7 +36,7 @@ class ConnectionFactory
             throw new Exception\ConnectionClassDoesNotExistsException($connectionClassName);
         }
 
-        $connection = new $connectionClassName($configuration);
+        $connection = new $connectionClassName($configuration, $connectionKey);
         if (!$connection instanceof Connection) {
             throw new Exception\ConnectionClassDoesNotImplementConnectionException($connectionClassName);
         }

@@ -4,38 +4,31 @@ namespace Mindweb\Db;
 abstract class Connection
 {
     /**
-     * @var string
-     */
-    private $type;
-
-    /**
      * @var mixed
      */
     private $handler;
 
     /**
-     * @param string $type
-     * @param mixed $handler
+     * @var bool
      */
-    public function __construct($type, $handler)
-    {
-        $this->type = $type;
-        $this->handler = $handler;
-    }
+    protected $isInitialized = false;
 
     /**
      * @return string
      */
-    public function getType()
-    {
-        return $this->type;
-    }
+    abstract public function getType();
 
     /**
      * @return mixed
      */
     public function getHandler()
     {
+        if (!$this->isInitialized) {
+            $this->handler = $this->initialize();
+        }
+
         return $this->handler;
     }
+
+    abstract protected function initialize();
 }

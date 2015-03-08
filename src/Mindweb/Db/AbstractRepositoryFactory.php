@@ -3,6 +3,9 @@ namespace Mindweb\Db;
 
 abstract class AbstractRepositoryFactory
 {
+    /**
+     * @var array
+     */
     protected $repositories = array();
 
     /**
