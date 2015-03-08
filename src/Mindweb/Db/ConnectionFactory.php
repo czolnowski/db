@@ -40,7 +40,7 @@ class ConnectionFactory
             throw new Exception\ConnectionClassDoesNotImplementConnectionException($connectionClassName);
         }
 
-        self::$connections[$connectionClassName] = $configuration;
+        self::$connections[$connectionClassName] = $connection;
 
         return self::$connections[$connectionClassName];
     }
