@@ -1,0 +1,50 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "08f42716d9e5d5fa14a02077987d7b92",
+    "packages": [
+        {
+            "name": "mindweb/config",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/czolnowski/config.git",
+                "reference": "7376430c09dd359db61f8dc7e9c2204466cc0cfb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/czolnowski/config/zipball/7376430c09dd359db61f8dc7e9c2204466cc0cfb",
+                "reference": "7376430c09dd359db61f8dc7e9c2204466cc0cfb",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Mindweb\\Config\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marcin Czołnowski",
+                    "email": "marcin@czolnowski.net"
+                }
+            ],
+            "time": "2015-03-08 08:43:13"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
